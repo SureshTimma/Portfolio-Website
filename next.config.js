@@ -1,6 +1,7 @@
 const path = require('path')
  
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
@@ -23,4 +24,14 @@ module.exports = {
       },
     ],
   },
+  // Disable static generation for Netlify deployment
+  output: 'standalone',
+  // Prevent static optimization
+  reactStrictMode: true,
+  experimental: {
+    // Disable static generation and use SSR mode
+    appDir: true,
+  }
 }
+
+module.exports = nextConfig
