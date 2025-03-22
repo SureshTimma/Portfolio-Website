@@ -1,7 +1,7 @@
 const path = require('path')
  
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
+  output: 'export',
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
@@ -23,11 +23,6 @@ const nextConfig = {
         pathname: '**',
       },
     ],
+    unoptimized: true,
   },
-  // Use standalone output for Netlify deployment
-  output: 'standalone',
-  // Prevent static optimization
-  reactStrictMode: true
 }
-
-module.exports = nextConfig
