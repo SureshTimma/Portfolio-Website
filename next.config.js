@@ -24,14 +24,10 @@ const nextConfig = {
       },
     ],
   },
-  // Disable static generation for Netlify deployment
+  // Use standalone output for Netlify deployment
   output: 'standalone',
   // Prevent static optimization
-  reactStrictMode: true,
-  experimental: {
-    // Disable static generation and use SSR mode
-    appDir: true,
-  }
+  reactStrictMode: true
 }
 
 module.exports = nextConfig

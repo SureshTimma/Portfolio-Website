@@ -1,4 +1,4 @@
-import { GoogleTagManager } from "@next/third-parties/google";
+import dynamic from "next/dynamic";
 import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,6 +14,10 @@ export const metadata = {
   description:
     "This is the portfolio of Abu Said. I am a full stack developer and a self taught developer. I love to learn new things and I am always open to collaborating with others. I am a quick learner and I am always looking for new challenges.",
 };
+
+const GoogleTagManager = dynamic(() => import("@next/third-parties/google").then((module) => module.GoogleTagManager), {
+  ssr: false,
+});
 
 export default function RootLayout({ children }) {
   return (
